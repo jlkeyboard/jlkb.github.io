@@ -142,7 +142,7 @@ body {
         var btn = document.getElementById("startup_btn");
 
         btn.disabled = true;
-        btn.value = "Requesting device list...";
+        btn.value = "兼容Vial-JL键盘列表...";
         devices = await navigator.hid.requestDevice({filters: [{usagePage: 0xFF60, usage: 0x61}]});
         if (devices.length != 1) {
             btn.value = "启动Vial-JL";
@@ -176,7 +176,7 @@ body {
         };
         _vialglue_set_device_desc(allocateUTF8(JSON.stringify(device_desc)));
 
-        btn.value = "Starting up....";
+        btn.value = "启动中....";
         PThread.runningWorkers[0].postMessage({cmd: "py", payload: "import webmain;webmain.main(qtApp)"});
 
         g_animation = setInterval(update_animation, 500);
