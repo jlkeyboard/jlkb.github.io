@@ -65,17 +65,13 @@ body {
     color: red;
 }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
-<style>
-    body {
-        font-family: 'Noto Sans SC', sans-serif;
-    }
-</style></head>
+<meta charset="UTF-8">
+</head>
 <body>
 
 <div id="startup">
     <div id="startup_inner">
-        <input id="startup_btn" type="button" onclick="connect()" value="启动Vial-JL" disabled="true" /><br>
+        <input id="startup_btn" type="button" onclick="connect()" value="Start Vial" disabled="true" /><br>
         <div id="error" style="display:none">
             <p id="error_msg"></p>
             <p>You can check web browser support at <a href="https://caniuse.com/webhid" target="_blank">caniuse.com</a>.<br>
@@ -83,7 +79,7 @@ body {
                 You can also download the standalone Vial application from <a href="https://get.vial.today/" target="_blank">get.vial.today</a>.</p>
         </div>
     </div>
-    <div id="version">Vial: 5ae2c6dd9615ee50ce08e90b0c33c7d3422b6d98<br>Web: 296046d1dbb8ab450736dbd549f8ffd4299f4004<br>Support: 3bcf423c970300722a04113de1d20c901b177e42</div>
+    <div id="version">Vial: 5ae2c6dd9615ee50ce08e90b0c33c7d3422b6d98<br>Web: b586f392944c39f88a45f87a667a68cbaa7b4890<br>Support: 3bcf423c970300722a04113de1d20c901b177e42</div>
 </div>
 
 <div id="unlock" style="display:none">
@@ -99,7 +95,7 @@ body {
 <canvas id="canvas" oncontextmenu="return false;" tabindex="-1"></canvas>
 
 <script src="coi-serviceworker.js"></script>
-        
+
 <script>
     var Module = {};
     Module.canvas = document.getElementById("canvas");
@@ -147,14 +143,14 @@ body {
         var btn = document.getElementById("startup_btn");
 
         btn.disabled = true;
-        btn.value = "兼容Vial-JL键盘列表...";
+        btn.value = "Requesting device list...";
         devices = await navigator.hid.requestDevice({filters: [{usagePage: 0xFF60, usage: 0x61}]});
         if (devices.length != 1) {
-            btn.value = "启动Vial-JL";
+            btn.value = "Start Vial";
             btn.disabled = false;
             return;
         }
-        btn.value = "连接兼容Vial-JL的键盘...";
+        btn.value = "Connecting to the device...";
         await devices[0].open();
         devices[0].oninputreport = function(ev) {
             clearTimeout(g_read_timeout);
@@ -181,7 +177,7 @@ body {
         };
         _vialglue_set_device_desc(allocateUTF8(JSON.stringify(device_desc)));
 
-        btn.value = "启动中....";
+        btn.value = "Starting up....";
         PThread.runningWorkers[0].postMessage({cmd: "py", payload: "import webmain;webmain.main(qtApp)"});
 
         g_animation = setInterval(update_animation, 500);
@@ -210,6 +206,6 @@ body {
     };
 </script>
 
-<script src="main-1e3f5769da493fb58544f093805e54b8f2762d68dceb3fea80b0da3b8b3ead04.js"></script>
+<script src="main-24fd1a66b1cbbab767a1aa6cf8f6779b8aa2a392c1684523b1ad2c644b3c0765.js"></script>
 
 </body>
