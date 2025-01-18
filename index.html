@@ -174,7 +174,7 @@ text-decoration: none;
         btn.value = "Requesting device list...";
         devices = await navigator.hid.requestDevice({filters: [{usagePage: 0xFF60, usage: 0x61}]});
         if (devices.length != 1) {
-            btn.value = "Start Vial";
+            btn.value = "Ready Vial-JL";
             btn.disabled = false;
             return;
         }
