@@ -28,14 +28,30 @@ body {
 #startup_btn {
     font-size: 250%;
     padding: 1em;
+    width: 250px;
+    height: 250px;
+    line-height: 100px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 130px;
+    background: linear-gradient(45deg, #ff0000, #0000ff);
+    background-size: 400% 400%;
+    animation: gradient-animation 5s infinite;
+  }
+
+  @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 #version {
     position: absolute;
     right: 0;
     bottom: 0;
     margin: 1em;
-    color: #aaa;
-    text-align: right;
+    color: #fff;
+    text-align: left;
 }
 #unlock {
     position: fixed;
@@ -64,13 +80,21 @@ body {
 #error_msg {
     color: red;
 }
+.a{
+color: #03dac6;
+text-decoration: none;
+}
+.p{
+color: #000000;
+text-decoration: none;
+}
 </style>
 </head>
 <body>
 
 <div id="startup">
     <div id="startup_inner">
-        <input id="startup_btn" type="button" onclick="connect()" value="Start Vial" disabled="true" /><br>
+        <input id="startup_btn" type="button" onclick="connect()" value="Vial-JL" disabled="true" /><br>
         <div id="error" style="display:none">
             <p id="error_msg"></p>
             <p>You can check web browser support at <a href="https://caniuse.com/webhid" target="_blank">caniuse.com</a>.<br>
@@ -78,7 +102,13 @@ body {
                 You can also download the standalone Vial application from <a href="https://get.vial.today/" target="_blank">get.vial.today</a>.</p>
         </div>
     </div>
-    <div id="version">Vial: 013d5607ebf6d2e23ae69211a62d58ec27b1b15d<br>Web: 205f38f29a2aa8648527667c2abe160801e8c4b5<br>Support: 3bcf423c970300722a04113de1d20c901b177e42</div>
+    <div id="version">
+    New Options Added for Version 0.7.2 Upgrade<br>
+    <span class="p">由0.7.2新增优化而来</span><br>
+    Bespoke/Purchase a Compatible Keyboard-<a class="a" href="https://jlkb.taobao.com/" target="_blank">Vial-JL</a><br>
+    <span class="p">定制/选购一个支持<a class="a" href="https://jlkb.taobao.com/" target="_blank">Vial-JL</a>的键盘</span><br>
+    Encoder/Joysticks and more...<br>
+   <span class="p">旋钮/摇杆等功能</span><br></div>
 </div>
 
 <div id="unlock" style="display:none">
@@ -93,8 +123,6 @@ body {
 
 <canvas id="canvas" oncontextmenu="return false;" tabindex="-1"></canvas>
 
-<script src="coi-serviceworker.js"></script>
-    
 <script>
     var Module = {};
     Module.canvas = document.getElementById("canvas");
