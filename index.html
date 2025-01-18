@@ -93,7 +93,9 @@ body {
 
 <canvas id="canvas" oncontextmenu="return false;" tabindex="-1"></canvas>
 
-<script src="coi-serviceworker.js"></script>
+<script>
+  if (!crossOriginIsolated) SharedArrayBuffer = ArrayBuffer;
+</script>
     
 <script>
     var Module = {};
