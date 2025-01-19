@@ -33,7 +33,7 @@ body {
     font-size: 250%;
     width: 550px;
     height: 130px;
-    line-height: 100px;
+    line-height: 1.5;
     text-align: center;
     color: white;
     font-weight: bold;
@@ -97,7 +97,7 @@ text-decoration: none;
 
 <div id="startup">
     <div id="startup_inner">
-        <input id="startup_btn" type="button" onclick="connect()" value="Starting Vial-JL" disabled="true" /><br>
+        <input id="startup_btn" type="button" onclick="connect()" value="Starting Vial-JL……&#10;加载Vial-JL……" disabled="true" /><br>
         <div id="error" style="display:none">
             <p id="error_msg"></p>
             <p>You can check web browser support at <a href="https://caniuse.com/webhid" target="_blank">caniuse.com</a>.<br>
@@ -203,14 +203,14 @@ text-decoration: none;
         var btn = document.getElementById("startup_btn");
 
         btn.disabled = true;
-        btn.value = "Requesting device list...";
+        btn.value = "Requesting device list...&#10;兼容Vial-JL列表……";
         devices = await navigator.hid.requestDevice({filters: [{usagePage: 0xFF60, usage: 0x61}]});
         if (devices.length != 1) {
-            btn.value = "Ready Vial-JL";
+            btn.value = "Ready Vial-JL&#10;已就绪Vial-JL……";
             btn.disabled = false;
             return;
         }
-        btn.value = "Connecting to the device...";
+        btn.value = "Connecting to the device...&#10;正在连接Vial-JL设备……";
         await devices[0].open();
         devices[0].oninputreport = function(ev) {
             clearTimeout(g_read_timeout);
@@ -237,7 +237,7 @@ text-decoration: none;
         };
         _vialglue_set_device_desc(allocateUTF8(JSON.stringify(device_desc)));
 
-        btn.value = "Starting up....";
+        btn.value = "Starting up....&#10;加载Vial-JL……";
         PThread.runningWorkers[0].postMessage({cmd: "py", payload: "import webmain;webmain.main(qtApp)"});
 
         g_animation = setInterval(update_animation, 500);
