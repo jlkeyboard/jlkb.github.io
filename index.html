@@ -98,7 +98,7 @@ text-decoration: none;
             <p id="error_msg"></p>
             <p>You can check web browser support at <a href="https://caniuse.com/webhid" target="_blank">caniuse.com</a>.<br>
                 Latest versions of Chrome, Chromium or Edge are recommended to use Vial Web.<br>
-                You can also download the standalone Vial application from <a href="https://get.vial.today/" target="_blank">get.vial.today</a>.</p>
+                You can also download the standalone Vial application from <a href="https://jlkb.taobao.com/" target="_blank">get.vial.today</a>.</p>
         </div>
     </div>
     <div id="version">
@@ -169,6 +169,64 @@ text-decoration: none;
         }
     }
 
+    const FILE_OPTIONS = {
+            types: [
+                {
+                    description: "Vial layout",
+                    accept: { "application/json": [".vil"] },
+                },
+            ],
+            excludeAcceptAllOption: false,
+            multiple: false,
+        };
+
+        async function loadLayout() {
+            if (!window.showOpenFilePicker) {
+                alert("File loading API unavailable. Please use a newer browser.");
+                return;
+            }
+
+            const [handle] = await window.showOpenFilePicker(FILE_OPTIONS);
+
+            if (!handle) {
+                return;
+            }
+
+            const file = await handle.getFile();
+            const layout = await file.text();
+
+            PThread.runningWorkers[0].postMessage({
+                cmd: "py",
+                payload: `import webmain;webmain.window.on_layout_loaded(b${JSON.stringify(layout)})`,
+            });
+        }
+
+        async function saveLayout(layout) {
+            if (window.showSaveFilePicker) {
+                // This shows a file chooser dialog. It's a nicer experience
+                // if available, allowing the user to select a target
+                // filename and directory.
+                const handle = await window.showSaveFilePicker(FILE_OPTIONS);
+                const stream = await handle.createWritable();
+                await stream.write(layout);
+                await stream.close();
+            } else {
+                // If the File System API isn't available, we can at least
+                // trigger a simple download with a hardcoded filename.
+                const download = document.createElement('a');
+                download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(layout));
+                download.setAttribute('download', 'layout.vil');
+
+                if (document.createEvent) {
+                    var event = document.createEvent('MouseEvents');
+                    event.initEvent('click', true, true);
+                    download.dispatchEvent(event);
+                } else {
+                    download.click();
+                }
+            }
+        }
+    
     async function connect() {
         var btn = document.getElementById("startup_btn");
 
