@@ -169,38 +169,6 @@ text-decoration: none;
         }
     }
 
-    const FILE_OPTIONS = {
-            types: [
-                {
-                    description: "Vial layout",
-                    accept: { "application/json": [".vil"] },
-                },
-            ],
-            excludeAcceptAllOption: false,
-            multiple: false,
-        };
-
-        async function loadLayout() {
-            if (!window.showOpenFilePicker) {
-                alert("File loading API unavailable. Please use a newer browser.");
-                return;
-            }
-
-            const [handle] = await window.showOpenFilePicker(FILE_OPTIONS);
-
-            if (!handle) {
-                return;
-            }
-
-            const file = await handle.getFile();
-            const layout = await file.text();
-
-            PThread.runningWorkers[0].postMessage({
-                cmd: "py",
-                payload: `import webmain;webmain.window.on_layout_loaded(b${JSON.stringify(layout)})`,
-            });
-        }
-
         async function saveLayout(layout) {
             if (window.showSaveFilePicker) {
                 // This shows a file chooser dialog. It's a nicer experience
