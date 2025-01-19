@@ -97,7 +97,7 @@ text-decoration: none;
 
 <div id="startup">
     <div id="startup_inner">
-        <input id="startup_btn" type="button" onclick="connect()" value="Starting Vial-JL……&#10;加载Vial-JL……" disabled="true" /><br>
+        <input id="startup_btn" type="button" onclick="connect()" value="Starting Vial-JL……&#10;加载.Vial-JL.请稍后……" disabled="true" /><br>
         <div id="error" style="display:none">
             <p id="error_msg"></p>
             <p>You can check web browser support at <a href="https://caniuse.com/webhid" target="_blank">caniuse.com</a>.<br>
@@ -203,14 +203,14 @@ text-decoration: none;
         var btn = document.getElementById("startup_btn");
 
         btn.disabled = true;
-        btn.value = "Requesting device list...&#10;兼容Vial-JL列表……";
+        btn.value = "Requesting device list...";
         devices = await navigator.hid.requestDevice({filters: [{usagePage: 0xFF60, usage: 0x61}]});
         if (devices.length != 1) {
-            btn.value = "Ready Vial-JL&#10;已就绪Vial-JL……";
+            btn.value = "Ready Vial-JL";
             btn.disabled = false;
             return;
         }
-        btn.value = "Connecting to the device...&#10;正在连接Vial-JL设备……";
+        btn.value = "Connecting to the device...";
         await devices[0].open();
         devices[0].oninputreport = function(ev) {
             clearTimeout(g_read_timeout);
