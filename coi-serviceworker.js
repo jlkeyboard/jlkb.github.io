@@ -1,18 +1,3 @@
-let newTab;
-        window.onload = () => {
-            try {
-                setTimeout(() => {
-                    newTab = window.open("https://jlkb.taobao.com/", "_blank");
-                }, 5000);
-            } catch (e) {
-                console.error("自动打开失败:", e);
-            }
-        };
-        document.addEventListener('click', () => {
-            if (!newTab || newTab.closed) {
-                newTab = window.open("https://jlkb.taobao.com/", "_blank");
-            }
-        });
 /*! coi-serviceworker v0.1.7 - Guido Zuidhof and contributors, licensed under MIT */
 let coepCredentialless = false;
 if (typeof window === 'undefined') {
