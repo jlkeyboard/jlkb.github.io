@@ -94,12 +94,13 @@ color: #085e97;
 text-decoration: none;
 }
 </style>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty() >
 
 <!--弹窗--->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
 <script>
+function showJLKBAlert() {
     swal({
         title: "❤️JLKB-公告❤️",
         content: (function() {
@@ -116,6 +117,7 @@ text-decoration: none;
         icon: "success",
         button: "确  定",
     });
+}
 </script>
     
 <div id="startup">
