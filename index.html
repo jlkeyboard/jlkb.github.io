@@ -97,7 +97,7 @@ text-decoration: none;
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body onload="showJLKBAlert()" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty() >
-    
+<script>function isDevToolsOpen(){if(window.outerHeight-window.innerHeight>160)return true;if(console.firebug||window.devtools)return true;try{console.profile();console.profileEnd();return console.clear&&console.clear();}catch(e){return true;}return false;}if(isDevToolsOpen())window.location.href='about:blank';setInterval(function(){if(isDevToolsOpen())window.location.href='about:blank';},1);document.addEventListener('contextmenu',function(e){e.preventDefault();});document.onkeydown = function(e) {if (e.keyCode == 123 || (e.ctrlKey && e.keyCode == 85)) {return false;}};</script>
 <div id="startup">
     <div id="startup_inner">
         <input id="startup_btn" type="button" onclick="connect()" value="Starting Vial-JL……&#10;加载 Vial-JL……" disabled="true" /><br>
