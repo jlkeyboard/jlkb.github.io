@@ -1,14 +1,12 @@
 <head>
-    <meta charset="UTF-8">
     <title>Vial-JL</title>
-    <link rel="shortcut icon" href="./icon.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link rel="icon" href="/icon.png" type="image/png">
 <style>
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(logo.svg);
+    background-image: url(logo.png);
     overscroll-behavior-y: none;
     background-position: center; 
     background-repeat: no-repeat;
@@ -94,10 +92,9 @@ color: #085e97;
 text-decoration: none;
 }
 </style>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
-<body onload="showJLKBAlert()" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty() >
-<script>function isDevToolsOpen(){if(window.outerHeight-window.innerHeight>160)return true;if(console.firebug||window.devtools)return true;try{console.profile();console.profileEnd();return console.clear&&console.clear();}catch(e){return true;}return false;}if(isDevToolsOpen())window.location.href='about:blank';setInterval(function(){if(isDevToolsOpen())window.location.href='about:blank';},1);document.addEventListener('contextmenu',function(e){e.preventDefault();});document.onkeydown = function(e) {if (e.keyCode == 123 || (e.ctrlKey && e.keyCode == 85)) {return false;}};</script>
+<body>
+
 <div id="startup">
     <div id="startup_inner">
         <input id="startup_btn" type="button" onclick="connect()" value="Starting Vial-JL……&#10;加载 Vial-JL……" disabled="true" /><br>
@@ -105,14 +102,14 @@ text-decoration: none;
             <p id="error_msg"></p>
             <p>You can check web browser support at <a href="https://caniuse.com/webhid" target="_blank">caniuse.com</a>.<br>
                 Latest versions of Chrome, Chromium or Edge are recommended to use Vial Web.<br>
-                You can also download the standalone Vial application from <a href="https://jlkb.taobao.com/" target="_blank">jlkb.taobao.com</a>.</p>
+                You can also download the standalone Vial application from <a href="https://get.vial.today/" target="_blank">get.vial.today</a>.</p>
         </div>
     </div>
     <div id="version">
     If the network is not good, it may take a long time to load.<br>
     <span class="p">如果网络不好可能加载时间会比较久才能使用</span><br><br>
-    New Options Added for Version 0.7.2 Upgrade<br>
-    <span class="p">由0.7.2新增优化而来</span><br>
+    New Options Added for Version 0.7.4 Upgrade<br>
+    <span class="p">由0.7.4新增优化而来</span><br>
     Bespoke/Purchase a Compatible Keyboard-<a class="a" href="https://jlkb.taobao.com/" target="_blank">Vial-JL</a><br>
     <span class="p">定制/选购一个支持<a class="a" href="https://jlkb.taobao.com/" target="_blank">Vial-JL</a>的键盘</span><br>
     Support Encoder/Joysticks and more,All keys can be customized with macros...<br>
@@ -131,32 +128,6 @@ text-decoration: none;
 
 <canvas id="canvas" oncontextmenu="return false;" tabindex="-1"></canvas>
 
-<script src="coi-serviceworker.js"></script>
-    
-<!--弹窗--->
-<script>
-function showJLKBAlert() {
-    swal({
-        title: "❤️JLKB-公告❤️",
-        content: (function() {
-            let div = document.createElement("div");
-            div.innerHTML = `
-                <p>Vial-JL不定期更新，如有问题联系客服</p><br>
-                <p>💞可以定制任意配列键盘💞</p>
-                <p>🎊详情官网或咨询客服🎊</p>
-                <p>📌JLKB-连接📌</p>
-                <p style="text-align: left; padding-left: 100px;">官&nbsp;&nbsp;&nbsp;网：🎯<a style="text-decoration: none;color: #03dac6;" href="https://jlkb.jlkb.top/" target="_blank">https://jlkb.jlkb.top</a></p>
-                <p style="text-align: left; padding-left: 100px;">网&nbsp;&nbsp;&nbsp;盘：🎯<a style="text-decoration: none;color: #03dac6;" href="http://lhfha.x3322.net:5244/" target="_blank">http://lhfha.x3322.net:5244</a></p>
-                <p style="text-align: left; padding-left: 100px;">选&nbsp;&nbsp;&nbsp;购：🎯<a style="text-decoration: none;color: #03dac6;" href="https://jlkb.taobao.com/" target="_blank">https://jlkb.taobao.com</a></p>
-            `;
-            return div;
-        })(),
-        icon: "success",
-        button: "确  定",
-    });
-}
-</script>
-    
 <script>
     var Module = {};
     Module.canvas = document.getElementById("canvas");
@@ -200,32 +171,6 @@ function showJLKBAlert() {
         }
     }
 
-        async function saveLayout(layout) {
-            if (window.showSaveFilePicker) {
-                // This shows a file chooser dialog. It's a nicer experience
-                // if available, allowing the user to select a target
-                // filename and directory.
-                const handle = await window.showSaveFilePicker(FILE_OPTIONS);
-                const stream = await handle.createWritable();
-                await stream.write(layout);
-                await stream.close();
-            } else {
-                // If the File System API isn't available, we can at least
-                // trigger a simple download with a hardcoded filename.
-                const download = document.createElement('a');
-                download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(layout));
-                download.setAttribute('download', 'layout.vil');
-
-                if (document.createEvent) {
-                    var event = document.createEvent('MouseEvents');
-                    event.initEvent('click', true, true);
-                    download.dispatchEvent(event);
-                } else {
-                    download.click();
-                }
-            }
-        }
-    
     async function connect() {
         var btn = document.getElementById("startup_btn");
 
@@ -233,7 +178,7 @@ function showJLKBAlert() {
         btn.value = "Requesting device list...";
         devices = await navigator.hid.requestDevice({filters: [{usagePage: 0xFF60, usage: 0x61}]});
         if (devices.length != 1) {
-            btn.value = "Ready Vial-JL";
+            btn.value = "Start Vial";
             btn.disabled = false;
             return;
         }
@@ -264,7 +209,7 @@ function showJLKBAlert() {
         };
         _vialglue_set_device_desc(allocateUTF8(JSON.stringify(device_desc)));
 
-        btn.value = "Starting up....&#10;加载Vial-JL……";
+        btn.value = "Starting up....";
         PThread.runningWorkers[0].postMessage({cmd: "py", payload: "import webmain;webmain.main(qtApp)"});
 
         g_animation = setInterval(update_animation, 500);
@@ -293,6 +238,6 @@ function showJLKBAlert() {
     };
 </script>
 
-<script src="main-f2fa505283d0557b58ddbe226b61af10be9e7d2cfbb9056b4fcce11b55344c79.js"></script>
+<script src="main-9ce129625e866ad6a1691d5e5a90fc57e4096b33847913500f05d95bef1d3de1.js"></script>
 
 </body>
