@@ -1,0 +1,19 @@
+{
+  "labels": [
+    {
+      "id": "canadian-csa",
+      "name": "Canadian CSA (QWERTY)",
+      "filename": "Canadian_CSA__QWERTY_.json"
+    },
+    {
+      "id": "brazilian",
+      "name": "Brazilian(QWERTY)",
+      "filename": "Brazilian__QWERTY.json"
+    },
+    {
+      "id": "japanese",
+      "name": "Japanese (QWERTY - E/J)",
+      "filename": "Japanese__QWERTY_-_E_J.json"
+    }
+  ]
+}
