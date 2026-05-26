@@ -1,0 +1,79 @@
+{
+  "themes": [
+    {
+      "id": "catppuccin-frappe",
+      "name": "Catppuccin Frappe",
+      "filename": "catppuccin-frappe.json"
+    },
+    {
+      "id": "catppuccin-latte",
+      "name": "Catppuccin Latte",
+      "filename": "catppuccin-latte.json"
+    },
+    {
+      "id": "catppuccin-macchiato",
+      "name": "Catppuccin Macchiato",
+      "filename": "catppuccin-macchiato.json"
+    },
+    {
+      "id": "catppuccin-mocha",
+      "name": "Catppuccin Mocha",
+      "filename": "catppuccin-mocha.json"
+    },
+    {
+      "id": "gruvbox-dark",
+      "name": "Gruvbox Dark",
+      "filename": "gruvbox-dark.json"
+    },
+    {
+      "id": "gruvbox-light",
+      "name": "Gruvbox Light",
+      "filename": "gruvbox-light.json"
+    },
+    {
+      "id": "kanagawa-dragon",
+      "name": "Kanagawa Dragon",
+      "filename": "kanagawa-dragon.json"
+    },
+    {
+      "id": "kanagawa-lotus",
+      "name": "Kanagawa Lotus",
+      "filename": "kanagawa-lotus.json"
+    },
+    {
+      "id": "kanagawa-wave",
+      "name": "Kanagawa Wave",
+      "filename": "kanagawa-wave.json"
+    },
+    {
+      "id": "onedark",
+      "name": "One Dark",
+      "filename": "onedark.json"
+    },
+    {
+      "id": "solarized-dark",
+      "name": "Solarized Dark",
+      "filename": "solarized-dark.json"
+    },
+    {
+      "id": "solarized-light",
+      "name": "Solarized Light",
+      "filename": "solarized-light.json"
+    },
+    {
+      "id": "tokyo-night",
+      "name": "Tokyo Night",
+      "filename": "tokyo-night.json"
+    },
+    {
+      "id": "tokyo-night-light",
+      "name": "Tokyo Night Light",
+      "filename": "tokyo-night-light.json"
+    },
+    {
+      "id": "tokyo-night-storm",
+      "name": "Tokyo Night Storm",
+      "filename": "tokyo-night-storm.json"
+    }
+  ]
+}
