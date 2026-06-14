@@ -296,7 +296,7 @@
       "scrollLockDesc": "Scroll LockインジケーターのLEDインデックス",
       "layer": "レイヤー",
       "layerHint": "各レイヤーインジケーターのLED設定を構成",
-      "index": "LEDインデックス",
+      "index": "LED開始",
       "count": "LED数",
       "brightness": "明るさ",
       "sleepTimeout": "スリープタイムアウト",
@@ -310,6 +310,8 @@
       "timeoutDesc": "RGBマトリックスは{{seconds}}秒の非アクティブ後にスリープします",
       "timeoutNeverDesc": "RGBマトリックスは自動的にスリープしません",
       "realTimeSync": "リアルタイム同期",
+      "sync": "読み取り",
+      "syncAll": "すべて読み取り",
       "testAll": "すべてテスト",
       "testing": "テスト中..."
     },
@@ -609,7 +611,7 @@
     "system": "システム"
   },
   "themePacks": {
-    "manageRow": "テーマパック管理",
+    "manageRow": "管理",
     "title": "テーマパック",
     "bundledThemes": "バンドルテーマ",
     "edit": "管理",

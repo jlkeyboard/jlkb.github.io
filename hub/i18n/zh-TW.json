@@ -296,7 +296,7 @@
       "scrollLockDesc": "滾動鎖定指示灯 LED 索引",
       "layer": "层",
       "layerHint": "設定每層指示燈的 LED 設定",
-      "index": "LED 索引",
+      "index": "LED 起始",
       "count": "LED 數量",
       "brightness": "亮度",
       "sleepTimeout": "睡眠逾時",
@@ -310,6 +310,8 @@
       "timeoutDesc": "RGB 矩陣將在 {{seconds}} 秒無活動後睡眠",
       "timeoutNeverDesc": "RGB 矩陣將永不自動睡眠",
       "realTimeSync": "即時同步",
+      "sync": "讀取",
+      "syncAll": "讀取全部",
       "testAll": "測試全部",
       "testing": "測試中..."
     },

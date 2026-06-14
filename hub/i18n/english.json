@@ -296,7 +296,7 @@
       "scrollLockDesc": "LED index for Scroll Lock indicator",
       "layer": "Layer",
       "layerHint": "Configure LED settings for each layer indicator",
-      "index": "LED Index",
+      "index": "LED Start",
       "count": "LED Count",
       "brightness": "Brightness",
       "sleepTimeout": "Sleep Timeout",
@@ -310,6 +310,8 @@
       "timeoutDesc": "RGB matrix will sleep after {{seconds}} seconds of inactivity",
       "timeoutNeverDesc": "RGB matrix will never sleep automatically",
       "realTimeSync": "Real-time Sync",
+      "sync": "Read",
+      "syncAll": "Read All",
       "testAll": "Test All",
       "testing": "Testing..."
     },
