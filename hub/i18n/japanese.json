@@ -570,7 +570,9 @@
       "swapHands": "ハンドスワップ",
       "sequencer": "シーケンサー",
       "joystick": "ジョイスティック",
-      "ledMatrix": "LEDマトリックス"
+      "ledMatrix": "LEDマトリックス",
+      "dial": "ダイヤル",
+	  "newKeys": "新規キー"
     }
   },
   "unlock": {

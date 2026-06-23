@@ -570,7 +570,9 @@
       "swapHands": "鏡像手切換",
       "sequencer": "音序器",
       "joystick": "搖桿",
-      "ledMatrix": "LED 矩陣"
+      "ledMatrix": "LED 矩陣",
+      "dial": "滾輪",
+	  "newKeys": "新增鍵"
     }
   },
   "unlock": {

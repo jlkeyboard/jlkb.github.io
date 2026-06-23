@@ -570,7 +570,9 @@
       "swapHands": "Swap Hands",
       "sequencer": "Sequencer",
       "joystick": "Joystick",
-      "ledMatrix": "LED Matrix"
+      "ledMatrix": "LED Matrix",
+      "dial": "Dial",
+	  "newKeys": "NewKyes"
     }
   },
   "unlock": {
